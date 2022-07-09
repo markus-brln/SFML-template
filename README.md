@@ -2,6 +2,12 @@
 A project example for SFML C++ applications on Linux and Windows. Detailed installation 
 instructions. Just implement `Model::render()` and you will see it on your screen.
 
+## Features
+* Simple config from `config.json`
+* Easily extendable with live keyboad input, own render function
+* FPS display
+* MVC pattern
+
 ## Try out yourself:
 
 ### Install SFML
@@ -39,7 +45,7 @@ g++ -o main.exe -std=c++2a -I. -L lib/windows  \
    - `-fopenmp` Multithreading with OpenMP, see `#pragma` directive in `Model::render()`
 
 
-### Linux:
+### Linux (Ubuntu):
 
 I only have experience with Ubuntu, here are some ways of how you can compile 
 the project yourself that may or may not apply to other distros.
