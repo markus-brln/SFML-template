@@ -1,0 +1,9 @@
+{
+    "FULL_SCREEN": false,
+    "SHOW_FPS": true,
+    "SIZE_X": 1000,
+    "SIZE_Y": 1000,
+    "FONT_PATH": "../fonts/jackInputMonospace.TTF",
+    "FONT_SIZE": 10,
+    "FONT_COLOR": 4294967295
+}

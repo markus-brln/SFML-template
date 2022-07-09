@@ -1,0 +1,9 @@
+#include "utils/utils.h"
+#include "model/model.h"
+#include "viewsf/viewsf.h"
+#include "controller/controller.h"
+
+#include <omp.h>
+
+
+using namespace std;
