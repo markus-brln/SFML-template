@@ -7,7 +7,7 @@ instructions. Just implement `Model::render()` and you will see it on your scree
 * Easily extendable with live keyboad input, own render function
 * FPS display
 * MVC pattern
-* Great `Makefile` re-usable for other projects
+* `Makefile` re-usable for other projects, only re-compiles modified sources
 
 ## Try out yourself:
 
@@ -21,45 +21,21 @@ instructions. Just implement `Model::render()` and you will see it on your scree
 so the folders are a little different)
 ![librarySetup](https://user-images.githubusercontent.com/56026631/112718740-39a24680-8ef5-11eb-91f4-1e59d65bbe47.png)
 
-### Windows 10
-
-#### Compile the project yourself
-
-1. Install Mingw 8.1.0 compiler if you don't have a compiler yet.  
-   1.1 [Download Mingw installer](https://sourceforge.net/projects/mingw-w64/)  
-   1.2 Follow Mingw [install instructions](https://code.visualstudio.com/docs/cpp/config-mingw)  
-   1.3 Don't forget to switch to x86_64 architechture  
-   1.4 Don't forget to add Mingw's bin folder to PATH, as described in 1.1
-
-2. Compile  
-   In scr/ execute:  
-```
-g++ -o main.exe -std=c++2a -I. -L lib/windows  \
-*.cc controller/*.cc utils/*.cc model/*.cc viewsf/*.cc \
--lm -lsfml-graphics -lsfml-window -lsfml-system -fopenmp
-```
-
-   Compiler flag explanation:    
-   - `-std=c++2a` Specify C++ standard to use
-   - `-L lib/windows` Search the library named library when linking.
-   - `-lsfml-graphics -lsfml-window -lsfml-system` Flags that SFML library requires, see [here](https://www.sfml-dev.org/tutorials/2.5/start-linux.php).
-   - `-fopenmp` Multithreading with OpenMP, see `#pragma` directive in `Model::render()`
-
 
 ### Linux (Ubuntu):
 
 I only have experience with Ubuntu, here are some ways of how you can compile 
 the project yourself that may or may not apply to other distros.
 
-**1. Compile the program using g++**
+#### 1. Compile the program using g++
 
-   in scr/ execute (note the lib/linux instead of windows):  
+   in scr/ execute:  
 
 ```
 g++ -o main -std=c++2a -I. -L lib/linux  *.cc controller/*.cc utils/*.cc model/*.cc viewsf/*.cc -lm -lsfml-graphics -lsfml-window -lsfml-system -fopenmp
 ```
 
-**2. What I did when developing**
+#### 2. What I did when developing
 
    1. Install SFML for your own projects  
    ```sudo apt-get install libsfml-dev```  
@@ -77,3 +53,26 @@ modified sources are recompiled.
       `./main`
    5. Remove SFML (when you want to clean up):  
 `sudo apt-get remove libsfml-dev`
+
+### Windows 10
+
+1. Install Mingw 8.1.0 compiler if you don't have a compiler yet.  
+   1.1 [Download Mingw installer](https://sourceforge.net/projects/mingw-w64/)  
+   1.2 Follow Mingw [install instructions](https://code.visualstudio.com/docs/cpp/config-mingw)  
+   1.3 Don't forget to switch to x86_64 architechture  
+   1.4 Don't forget to add Mingw's bin folder to PATH, as described in 1.1
+
+2. Compile  
+   In `scr/` execute (note the `lib/windows` instead of `lib/linux`):  
+```
+g++ -o main.exe -std=c++2a -I. -L lib/windows  \
+*.cc controller/*.cc utils/*.cc model/*.cc viewsf/*.cc \
+-lm -lsfml-graphics -lsfml-window -lsfml-system -fopenmp
+```
+
+   Compiler flag explanation:    
+   - `-std=c++2a` Specify C++ standard to use
+   - `-L lib/windows` Search the library named library when linking.
+   - `-lsfml-graphics -lsfml-window -lsfml-system` Flags that SFML library requires, see [here](https://www.sfml-dev.org/tutorials/2.5/start-linux.php).
+   - `-fopenmp` Multithreading with OpenMP, see `#pragma` directive in `Model::render()`
+
