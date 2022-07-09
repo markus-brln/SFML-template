@@ -7,6 +7,7 @@ instructions. Just implement `Model::render()` and you will see it on your scree
 * Easily extendable with live keyboad input, own render function
 * FPS display
 * MVC pattern
+* Great `Makefile` re-usable for other projects
 
 ## Try out yourself:
 
