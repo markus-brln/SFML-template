@@ -1,5 +1,6 @@
 .idea
 .vscode
+src/generated_deps
 
 # Prerequisites
 *.d

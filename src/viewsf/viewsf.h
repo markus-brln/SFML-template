@@ -24,7 +24,6 @@ class ViewSF
         // members
         sf::Image &img();
         void draw();
-        void resize();
 
         // sf::RenderWindow wrapped members
         bool isOpen();
