@@ -32,8 +32,16 @@ the project yourself that may or may not apply to other distros.
    in scr/ execute:  
 
 ```
-g++ -o main -std=c++2a -I. -L lib/linux  *.cc controller/*.cc utils/*.cc model/*.cc viewsf/*.cc -lm -lsfml-graphics -lsfml-window -lsfml-system -fopenmp
+g++ -o main -std=c++2a -I. -L lib/linux  \
+*.cc controller/*.cc utils/*.cc model/*.cc viewsf/*.cc \
+-lm -lsfml-graphics -lsfml-window -lsfml-system -fopenmp
 ```
+   Compiler flag explanation:    
+   - `-std=c++2a` Specify C++ standard to use
+   - `-L lib/linux` Search the library named library when linking.
+   - `-lsfml-graphics -lsfml-window -lsfml-system` Flags that SFML library requires, see [here](https://www.sfml-dev.org/tutorials/2.5/start-linux.php).
+   - `-fopenmp` Multithreading with OpenMP, see `#pragma` directive in `Model::render()`
+
 
 #### 2. What I did when developing
 
