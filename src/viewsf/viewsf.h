@@ -2,6 +2,7 @@
 #define VIEWSF_H
 
 #include <SFML/Graphics.hpp>
+#include <SFML/Window/Event.hpp>
 #include "../utils/utils.h"
 
 
@@ -27,7 +28,7 @@ class ViewSF
 
         // sf::RenderWindow wrapped members
         bool isOpen();
-        bool pollEvent(sf::Event &event);
+        optional<sf::Event> pollEvent();
         void close();
 };
 // extendable wrapper for sf::RenderWindow
@@ -39,9 +40,9 @@ inline bool ViewSF::isOpen()
 }
 
 
-inline bool ViewSF::pollEvent(sf::Event &event)
+inline optional<sf::Event> ViewSF::pollEvent()
 {
-    return d_window.pollEvent(event);
+    return d_window.pollEvent();
 }
 
 inline void ViewSF::close()

@@ -2,12 +2,15 @@
 
 sf::Text Controller::createText()
 {
-    sf::Text text;
     // select the font
     sf::Font font;
-    font.loadFromFile("../fonts/jackInputMonospace.TTF");
-    text.setFont(font); // font is a sf::Font
+    if (!font.openFromFile(FONT_PATH))
+    {
+        throw runtime_error("Could not find the font file in Controller::createText");
+    }
+    // text.setFont(font); // font is a sf::Font
 
+    sf::Text text(font, "", 10);
     // set the character size
     text.setCharacterSize(10); // in pixels, not points!
 

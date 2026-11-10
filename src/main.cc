@@ -1,9 +1,10 @@
 #include "main.ih"
 
+using namespace std;
 
 int main()
 {
-    parseConfig();
+    parseConfig("assets/config.json");
 
     Model model;                        // MVC pattern
     ViewSF viewsf;

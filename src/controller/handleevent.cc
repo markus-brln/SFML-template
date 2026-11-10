@@ -1,16 +1,19 @@
 #include "controller.ih"
 
-
-void Controller::handleEvent(Event &event)
+void Controller::handleEvent(sf::Event &event)
 {
-    if (event.type == sf::Event::Closed)
-        d_viewsf.close();
-
-    if (event.type == sf::Event::EventType::KeyPressed)
+    // Check for the Window Closed event subtype
+    if (event.is<sf::Event::Closed>())
     {
-        switch (event.key.code)
+        d_viewsf.close();
+    }
+
+    // Check for and extract data from the KeyPressed event subtype
+    if (const auto* keyPressed = event.getIf<sf::Event::KeyPressed>())
+    {
+        switch (keyPressed->code)
         {
-        case (sf::Keyboard::Space):                 
+        case sf::Keyboard::Key::Space:
             // code
             break;
 
@@ -20,4 +23,3 @@ void Controller::handleEvent(Event &event)
     }
 }
 // for closing and reset, events that should just happen once -> not live input
-

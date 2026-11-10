@@ -3,15 +3,21 @@
 
 void Controller::run()
 {
-    Event event;
-
     while (d_viewsf.isOpen())
     {
-        while (d_viewsf.pollEvent(event))
-            handleEvent(event);         // closing, reset (single events between renders)
-        handleKeyPresses();             // live input
+        while (true)
+        {
+            if (optional<Event> event = d_viewsf.pollEvent())
+            {
+                handleEvent(*event);
+            } else
+            {
+                break;
+            }
+            handleKeyPresses();             // live input
+        }
 
-        d_model.render(d_viewsf.img()); //
+        Model::render(d_viewsf.img());
         
         d_viewsf.draw();
     }

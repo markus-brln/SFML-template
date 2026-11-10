@@ -8,7 +8,7 @@
 class Model
 {
     public:
-        void render(sf::Image &img);
+        static void render(sf::Image &img);
 };
 
 

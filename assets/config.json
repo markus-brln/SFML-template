@@ -3,7 +3,7 @@
     "SHOW_FPS": true,
     "SIZE_X": 200,
     "SIZE_Y": 200,
-    "FONT_PATH": "../fonts/jackInputMonospace.TTF",
+    "FONT_PATH": "assets/jackInputMonospace.TTF",
     "FONT_SIZE": 10,
     "FONT_COLOR": 4294967295
 }
